@@ -86,6 +86,37 @@ int main()
             std::cout << matrix[i][j] << "\t";
         std::cout << "\n";
     }
+
+    int steps = 2;
+    /*for (int s = 0; s < steps; s++)
+    {
+        for (int r = 0; r < rows; r++)
+        {
+            int pocket = matrix[r][0];
+            for (int c = 0; c < columns - 1; c++)
+                matrix[r][c] = matrix[r][c + 1];
+            matrix[r][columns - 1] = pocket;
+        }
+    }*/
+
+    for (int s = 0; s < steps; s++)
+    {
+        for (int c = 0; c < columns; c++)
+        {
+            int pocket = matrix[0][c];
+            for (int r = 0; r < rows - 1; r++)
+                matrix[r][c] = matrix[r + 1][c];
+            matrix[rows - 1][c] = pocket;
+        }
+    }
+    
+    std::cout << "\n";
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+            std::cout << matrix[i][j] << "\t";
+        std::cout << "\n";
+    }
         
 
 }
